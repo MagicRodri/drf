@@ -11,7 +11,7 @@ class Entity(models.Model):
     value = models.IntegerField()
     properties = models.ManyToManyField('Property')
     
-    def str(self):
+    def __str__(self):
         return f'Entity {self.id}'
 
     class Meta:
@@ -24,7 +24,7 @@ class Property(models.Model):
     key = models.CharField(max_length=255)
     value = models.CharField(max_length=255)
 
-    def str(self):
+    def __str__(self):
         return f'{self.key}-{self.value}'
 
     class Meta:

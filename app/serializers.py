@@ -27,10 +27,7 @@ class EntitySerializer(serializers.ModelSerializer):
             property = Property.objects.get(pk=property_pk)
             properties_dict[property.key] = property.value
             
-        data['data'] = {
-            'value': data.pop('value'),
-            'properties': properties_dict
-        }
+        data['properties'] = properties_dict
         return data
 
     def to_internal_value(self, data):
